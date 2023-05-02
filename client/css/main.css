@@ -1,0 +1,378 @@
+/* For different pages */
+
+.mainContainer {
+    display: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+}
+
+#popUpMessage {
+    display: none;
+    position: inherit;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    opacity: 0.9;
+    padding: 20px;
+    background-color: #0F2557;
+    text-align: center;
+}
+
+#closePopUp {
+    float: right;
+    color: white;
+    font-size: 2rem;
+}
+
+#closePopUp:hover {
+    cursor: pointer;
+}
+
+#jobSelect {
+    width: 250px;
+    text-align: center;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arloImage {
+    width: -webkit-fill-available;
+}
+
+.jobSheetContainer {
+    width: 100%;
+    display: grid;
+    gap: 15px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    margin-top: 30px;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: 100px;
+    min-height: 600px;
+}
+
+.jobSheetContainer > div {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.engineer{
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+}
+
+.expenses {
+    grid-column: 1 / 2;
+    grid-row: 4 / 7;
+}
+
+.details {
+    grid-column: 2 / 8;
+    grid-row: 2 / 4;
+}
+
+.equipment {
+    grid-column: 2 / 8;
+    grid-row: 4 / 7;
+}
+
+.formTitle {
+    font-size: 1rem;
+    text-decoration: underline;
+    color: black;
+    text-align: left;
+}
+
+.submitButton {
+    border: none;
+    background-color: inherit;
+    font-size: 1.4rem;
+}
+
+#locationLabel, #locationLabelSearch {
+    color: black;
+}
+
+#jobSelectForm {
+    display: inline;
+}
+
+#iconjob {
+    float: right;
+    font-size: 2rem;
+}
+
+#iconExport {
+    float: right;
+    font-size: 2rem;
+    margin-left: 30px;
+}
+
+#iconPDF {
+    float: right;
+    font-size: 2rem;
+    margin-left: 30px;
+}
+
+/* for adding job form */
+
+#jobDate, #clientSelect, .timeEntry, .engineerSelect, .textField, #jobDateNew, #clientSelectNew {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    transition: .5s;
+}
+
+.editClientDropdown:hover, #jobDate:hover, #clientSelect:hover, .timeEntry:hover, .engineerSelect:hover, .textField:hover {    
+    background-color: grey;
+    color: white;
+}
+
+#jobIDLabel, #newjobIDLabel, #jobIDLabelSearch {
+    font-size: 1.4rem;
+    color: black;
+}
+
+.engineerSelect {
+    display: block;
+}
+
+#detailsArea, #detailsAreaSearch, #detailsAreaNew {
+    width: 100%;
+    margin: 5px;
+    border-radius: 10px;
+    min-height: 250px;
+}
+
+.textField, .expensesLabel {
+    width: 40%;
+}
+
+.expensesLabel {
+    color: black;
+    width: 55px;
+    margin: 10px;
+}
+
+.equipmentLabel {
+    color: black;
+    text-decoration: underline;
+    padding: 5px;
+}
+
+#totalLabel {
+    width: 100%;
+}
+
+.equipmentInput, .equipmentInput2 {
+    width: 600px;
+}
+
+#addExpenseButton {
+    font-size: 2rem;
+    color: black;
+}
+
+#addExpenseButton:hover {
+    cursor: pointer;
+}
+
+#equipmentList > li, #editEngineerList > li {
+    margin: 10px;
+}
+
+.serialNumberInput, .costNumberInput, .saleNumberInput, .equipmentLabel {width: 150px;}
+.serialNumberInput2, .costNumberInput2, .saleNumberInput2, .equipmentLabel2 {width: 150px;}
+
+#jobSubmitButton {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: inherit;
+    padding: 5px;
+    margin: 5px;
+    transition: .5s;
+}
+
+#jobExportButton {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: inherit;
+    padding: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .5s;
+}
+
+#jobSubmitButton:hover, #jobExportButton:hover {
+    background-color: grey;
+    color: white;
+}
+
+/* for the engineer admin section */
+
+.navFrame {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.navButton {
+    font-size: 1.5rem;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    transition: .5s;
+    color: white;
+    background-color: #0F2557;
+    background-image: linear-gradient(180deg,#0F2557 10%,#224abe 100%);
+    background-size: cover;
+}
+
+.navButton:hover {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+.collapse-item:hover {
+    cursor: pointer;
+}
+
+.mymodal {
+    display: none;
+    margin: 10px;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+}
+
+.modalHeader {
+    text-decoration: underline;
+}
+
+.generalForm {
+    text-align: center;
+}
+
+.tableClass {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+/* for client admin section */
+
+#editClientNameList > li, #editClientAddressList > li {
+    margin: 10px;
+}
+
+.editClientDropdown {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    transition: .5s;
+}
+
+.addClientLabel {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    margin: 10px;
+}
+
+#clientText, #clientAddressText {
+    min-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    transition: .2s;
+}
+
+#clientText:hover, #clientAddressText:hover {
+    border: 3px solid black;
+    margin: 4px;
+}   
+
+#addClientButton {
+    margin: 5px;
+    padding: 5px;
+}
+
+#addClientButton:hover {
+    text-decoration: underline;
+}
+
+
+/*                              this is for the search area                                          */
+
+.searchFormList > li {
+    padding: 5px;
+    margin: 10px;
+}
+
+.searchFormList > li > label {
+    text-decoration: underline;
+}
+
+#generalSearchEngineerSelect {
+    width: auto;
+}
+
+#clientSelectGeneralSearch {
+    width: auto;
+}
+
+.searchFrame {
+    display: none;
+    /* display: flex; */
+    flex-wrap: wrap;
+}
+
+#generalSearchForm, #clientSearchForm {
+    flex: 40% 0;
+}
+
+#dropdownSearchGeneral {
+    flex: 0 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ClientContainer {
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 30px;
+}
+
+#searchTabButtons {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.searchTabButton {
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.searchTabButton:hover {
+    cursor: pointer;
+}
+
+.searchTitle {
+    color: rgb(34, 33, 33);
+    display: block;
+}
+

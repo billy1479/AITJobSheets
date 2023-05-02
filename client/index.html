@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Job Sheets</title>
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Job Sheets</div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" onclick="changePage('mainPage')">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <div id="imageContainer">
+                <img alt="arlo" class="arloImage" src="/img/cats.jpg">
+            </div>
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Job sheets</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" onclick="changePage('addJobSheet')">Make a job sheet</a>
+                        <a class="collapse-item" onclick="changePage('mainPage')">View job sheets</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>System Administration</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" onclick="changePage('editEngineers')">Edit Engineer Names</a>
+                        <a class="collapse-item" onclick="changePage('editClients')">Edit Client List</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSearch"
+                    aria-expanded="true" aria-controls="collapseSearch">
+                    <i class="fas fa-fw fa-search"></i>
+                    <span onclick="changePage('searchArea')">Search Job Sheets</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+
+            <!-- Nav Item - Charts -->
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" id="searchFormMain">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2" id="formSearchBox">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>                    
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <div id="popUpMessage">
+                    <a id="closePopUp" onclick="closePopUp()"><i class="bi bi-x-lg"></i></a>
+                    <h2 id="popUpTitle">Error message</h2>
+                    <p id="popUpContent">Message contents</p>
+                </div>
+
+                <!-- Begin Page Content -->
+                <div class="mainContainer" id="mainPage">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Job Sheets</h1>
+                    </div>
+
+                    <div id='jobSelectForm'>
+                        <!-- this is where the jobs are selected via their job number -->
+                        <select id="jobSelect">
+                            <option value="">Please select a job ... </option>
+                        </select>
+                    </div>
+
+                    <a href="" onclick="sendPDF2()" id="iconPDF"><i class="bi bi-filetype-pdf"></i></a>
+                    <a onclick="changePage('addJobSheet')" id="iconjob"><i class="bi bi-file-earmark-plus-fill"></i></a>
+
+                    <hr class="sidebar-divider">
+                    
+                    <div id="searchTempFrame"></div>
+
+                    <form id="viewJobSheetForm" style="text-align: center;" enctype="multipart/form-data">
+                    <div class="jobSheetContainer" id="jobSheets">
+                        <!-- this is where the job sheets are loaded -->
+                        <div class="date">
+                            <h3 class="formTitle">Date</h3>
+                            <hr class="sidebar-divider">
+                            <input type="date" id="jobDate" name="jobDate">
+                        </div>
+                        <div class="client">
+                            <h3 class="formTitle">Client</h3>
+                            <hr class="sidebar-divider">
+                            <select class="clientDropdowns" id="clientSelect" name="client">
+                                <option value="">Please select a client ... </option>
+                            </select>
+                        </div>
+                        <div class="location">
+                            <h3 class="formTitle">Location</h3>
+                            <hr class="sidebar-divider">
+                            <label class="locationLabels" id="locationLabel">N/A</label>
+                        </div>
+                        <div class="ponumber">
+                            <h3 class="formTitle">TRN</h3>
+                            <hr class="sidebar-divider">
+                            <input type="text" name="ponumber" id="ticketReferenceInput">
+                        </div>
+                        <div class="days">
+                            <h3 class="formTitle">Days</h3>
+                            <hr class="sidebar-divider">
+                            <input class="timeEntry" type="text" id="daysEntry" name="days">
+                        </div>
+                        <div class="hours">
+                            <h3 class="formTitle">Hours</h3>
+                            <hr class="sidebar-divider">
+                            <input class="timeEntry" type="text" id="hoursEntry" name="hours">
+                        </div>
+                        <div class="ID">
+                            <h3 class="formTitle">Job ID</h3>
+                            <hr class="sidebar-divider">
+                            <label id="jobIDLabel">1</label>
+                        </div>
+                        <div class="engineer">
+                            <h3 class="formTitle">Engineer</h3>
+                            <hr class="sidebar-divider">
+                            <select class="engineerSelect engineerSelectView" id="engineerSelect1" name="engineer1">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                            <select class="engineerSelect engineerSelectView" id="engineerSelect2" name="engineer2">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                            <select class="engineerSelect engineerSelectView" id="engineerSelect3" name="engineer3">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                            <select class="engineerSelect engineerSelectView" id="engineerSelect4" name="engineer4">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                        </div>
+                        <div class="details">
+                            <h3 class="formTitle">Job Details</h3>
+                            <hr class="sidebar-divider">
+                            <textarea name="jobDetails" id="detailsArea"></textarea>
+                        </div>
+                        <div class="expenses">
+                            <h3 class="formTitle">Expenses</h3>
+                            <hr class="sidebar-divider">
+                            <ul style="list-style: none;" id="expensesList">
+                                <li>
+                                    <label class="expensesLabel">Mileage:</label>
+                                    <input type="number" name="mileage" class="textField" id="mileageEntry" value="0" step="any">
+                                    <label id="milageLabel" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Food:</label>
+                                    <input type="number" name="food" class="textField" id="foodEntry" value="0" step="any">
+                                    <label id="foodLabel" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Postage:</label>
+                                    <input type="number" name="postage" class="textField" id="postageEntry" value="0" step="any">
+                                    <label id="postageLabel" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Parking:</label>
+                                    <input type="number" name="parking" class="textField" id="parkingEntry" value="0" step="any">
+                                    <label id="parkingLabel" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Tools:</label>
+                                    <input type="number" name="tools" class="textField" id="toolsEntry" value="0" step="any">
+                                    <label id="toolsLabel" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label id="totalLabel" class="expensesLabel"></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="equipment">
+                            <h3 class="formTitle">Equipment</h3>
+                            <hr class="sidebar-divider">
+                            <ul style="list-style: none; width: 100%;" id="equipmentList">
+                                <li>
+                                    <label class="equipmentLabel" style="width: 600px;">Equipment</label>
+                                    <label class="equipmentLabel">Serial Number</label>
+                                    <label class="equipmentLabel">Cost Number</label>
+                                    <label class="equipmentLabel">Sale Number</label>
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView">
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput1" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput1" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput2" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput2" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput3" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput3" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput4" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput4" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput5" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput5" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput6" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput6" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput7" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput7" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput8" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput8" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput9" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput9" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="equipment" class="equipmentInput equipmentInputView" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput serialNumberInputView" value="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput costNumberInputView" id="costNumberInput10" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput saleNumberInputView" id="saleNumberInput10" value="0" step="any">
+                                </li>
+                                <div id="extraEquipmentFrameMain">
+                                </div>
+                                <li>
+                                    <input id="totalCostLabel" name="totalCost" placeholder="Total Cost">
+                                    <input id="totalSaleLabel" name="totalSale" placeholder="Total Sale">
+                                </li>
+                            
+                            </ul>
+                        </div>
+                        <div class="invoiceNumber">
+                            <h3 class="formTitle">Invoice Number</h3>
+                            <hr class="sidebar-divider">
+                            <input type="text" name="invoiceNumber" id="invoiceNumberInput" placeholder="Invoice Number">
+                        </div>
+                        <div class="jobComplete">
+                            <h3 class="formTitle">Submit Changes</h3>
+                            <hr class="sidebar-divider">
+                            <label id="jobCompleteLabel">Commit change:</label>
+                            <input type="checkbox" name="jobComplete" id="jobCompleteCheckbox" placeholder="Job Complete" required>
+                        </div>
+                        
+                    </div>
+                    <button type="submit" id="jobSubmitButton">Submit Changes</button>
+                </form>
+                </div>
+                <div class="mainContainer" id="addJobSheet">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Add Job</h1>
+                    </div>
+
+                    <hr class="sidebar-divider">
+
+                    <form id="addJobSheetForm" style="text-align: center;" enctype="multipart/form-data">
+                    <div class="jobSheetContainer" id="jobSheets">
+                        <!-- this is where the job sheets are loaded -->
+                        <div class="date">
+                            <h3 class="formTitle">Date</h3>
+                            <hr class="sidebar-divider">
+                            <input type="date" id="jobDateNew" required>
+                        </div>
+                        <div class="client">
+                            <h3 class="formTitle">Client</h3>
+                            <hr class="sidebar-divider">
+                            <select class="clientDropdowns" id="clientSelectNew" name="client" required>
+                                <option value="">Please select a client ... </option>
+                            </select>
+                        </div>
+                        <div class="location">
+                            <h3 class="formTitle">Location</h3>
+                            <hr class="sidebar-divider">
+                            <label class='locationLabels' id="locationLabelNew">N/A</label>
+                        </div>
+                        <div class="ponumber">
+                            <h3 class="formTitle">TRN</h3>
+                            <hr class="sidebar-divider">
+                            <input type="text" name="ponumber" id="ticketReferenceInputNew" required>
+                        </div>
+                        <div class="days">
+                            <h3 class="formTitle">Days</h3>
+                            <hr class="sidebar-divider">
+                            <input class="timeEntry" type="text" id="daysEntryNew" name="days" value="0" required>
+                        </div>
+                        <div class="hours">
+                            <h3 class="formTitle">Hours</h3>
+                            <hr class="sidebar-divider">
+                            <input class="timeEntry" type="text" id="hoursEntryNew" name="hours" value="0" required>
+                        </div>
+                        <div class="ID">
+                            <h3 class="formTitle">Job ID</h3>
+                            <hr class="sidebar-divider">
+                            <label id="newjobIDLabel"></label>
+                        </div>
+                        <div class="engineer">
+                            <h3 class="formTitle">Engineer</h3>
+                            <hr class="sidebar-divider">
+                            <select class="engineerSelect newEngineerSelect" id="engineerSelect1" name="engineer1" required>
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                            <select class="engineerSelect newEngineerSelect" id="engineerSelect2" name="engineer2">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                            <select class="engineerSelect newEngineerSelect" id="engineerSelect3" name="engineer3">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                            <select class="engineerSelect newEngineerSelect" id="engineerSelect4" name="engineer4">
+                                <option value="">Please select an engineer ...</option>
+                            </select>
+                        </div>
+                        <div class="details">
+                            <h3 class="formTitle">Job Details</h3>
+                            <hr class="sidebar-divider">
+                            <textarea name="jobDetails" id="detailsAreaNew" required></textarea>
+                        </div>
+                        <div class="expenses">
+                            <h3 class="formTitle">Expenses</h3>
+                            <hr class="sidebar-divider">
+                            <ul style="list-style: none;" id="expensesList">
+                                <li>
+                                    <label class="expensesLabel">Mileage:</label>
+                                    <input type="number" name="mileage" class="textField newTextField" id="mileageEntry2" value="0" step="any">
+                                    <label id="milageLabel2" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Food:</label>
+                                    <input type="number" name="food" class="textField newTextField" id="foodEntry2" value="0" step="any">
+                                    <label id="foodLabel2" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Postage:</label>
+                                    <input type="number" name="postage" class="textField newTextField" id="postageEntry2" value="0" step="any">
+                                    <label id="postageLabel2" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Parking:</label>
+                                    <input type="number" name="parking" class="textField newTextField" id="parkingEntry2" value="0" step="any">
+                                    <label id="parkingLabel2" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label class="expensesLabel">Tools:</label>
+                                    <input type="number" name="tools" class="textField newTextField" id="toolsEntry2" value="0" step="any">
+                                    <label id="toolsLabel2" class="expensesLabel">£0</label>
+                                </li>
+                                <hr class="sidebar-divider">
+                                <li>
+                                    <label id="totalLabel2" class="expensesLabel"></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="equipment">
+                            <h3 class="formTitle">Equipment</h3>
+                            <hr class="sidebar-divider">
+                            <ul style="list-style: none; width: 100%;" id="equipmentList">
+                                <li>
+                                    <label class="equipmentLabel" style="width: 600px;">Equipment</label>
+                                    <label class="equipmentLabel">Serial Number</label>
+                                    <label class="equipmentLabel">Cost Number</label>
+                                    <label class="equipmentLabel">Sale Number</label>
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2">
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput1" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput1" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput2" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput2" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput3" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput3" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput4" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput4" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput5" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput5" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput6" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput6" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput7" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput7" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2">
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput8" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput8" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput9" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput9" value="0" step="any">
+                                </li>
+                                <li>
+                                    <input type="text" name="expenses" class="equipmentInput2" >
+                                    <input type="text" name="serialNumber" class="serialNumberInput2" placeholder="N/A">
+                                    <input type="number" name="costNumber" class="costNumberInput2" id="costNumberInput10" value='0' step="any">
+                                    <input type="number" name="saleNumber" class="saleNumberInput2" id="saleNumberInput10" value="0" step="any">
+                                </li>
+                                <div id="extraEquipmentFrameAdd">
+                                    <!-- extra equipment get loaded here when button is pressed -->
+                                </div>
+                                <li>
+                                    <a id="addExpenseButton"><i class="bi bi-plus-circle-fill"></i></a>
+                                </li>
+                                <li>
+                                    <input id="totalCostLabel2" name="totalCost" placeholder="Total Cost">
+                                    <input id="totalSaleLabel2" name="totalSale" placeholder="Total Sale">
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+                        <div class="invoiceNumber">
+                            <h3 class="formTitle">Invoice Number</h3>
+                            <hr class="sidebar-divider">
+                            <input type="text" name="invoiceNumber" id="invoiceNumberInputNew" placeholder="Invoice Number">
+                        </div>
+                        <div class="jobAttachments">
+                            <h3 class="formTitle">Attachments</h3>
+                            <hr class="sidebar-divider">
+                            <input type="file" name="jobFiles" id="jobFileInput" placeholder="Attachments" multiple>
+                        </div>
+                        <div class="jobComplete">
+                            <h3 class="formTitle">Job Complete</h3>
+                            <hr class="sidebar-divider">
+                            <label id="jobCompleteLabel">Job Complete:</label>
+                            <input type="checkbox" name="jobComplete" id="jobCompleteCheckbox" placeholder="Job Complete" required>
+                        </div>
+                        
+                    </div>
+                    <!-- this will be reactivated once a PDF software is sourced for the job sheet to be covnerted into -->
+                    <button type="submit" id="jobSubmitButton">Create Job</button>
+                </form>
+                <!-- <button id="jobExportButton">Create job</button> -->
+                <!-- change this back to create job with receipt -->
+                </div>
+                <div class="mainContainer" id="editClients">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Clients</h1>
+                    </div>
+
+                    <hr class="sidebar-divider">
+
+                    <div id="ClientContainer"></div>
+
+                    <div class="adminContainer">
+                        <!-- current engineers are loaded here -->
+                        <div id="clientContainer"></div>
+                        <div class="navFrame">
+                            <a onclick="openModal('addClientModal')" class="navButton" id="addEngineer">Add Client</a>
+                            <a onclick="openModal('editClientModal')" class="navButton" id="editEngineer">Edit Client</a>
+                            <a onclick="openModal('deleteClientModal')" class="navButton" id="deleteEngineer">Delete Client</a>
+                        </div>
+                        <hr class="sidebar-divider">
+                        <div class="mymodal" id="addClientModal">
+                            <!-- modal for the adding engineer section -->
+                            <h3 class="modalHeader">Add Client</h3>
+                            <form id="addClientForm" class="generalForm">
+                                <ul style="list-style: none;" id="addClientFormList">
+                                    <div id="addClientFormFrame"></div>
+                                    <li>
+                                        <label class="addClientLabel">Enter Client name below:</label>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="clientName" id="addClientText"> 
+                                    </li>
+                                    <li>
+                                        <label class="addClientLabel">Enter Client address below:</label>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="clientAddress" id="clientAddressText">
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="submitButton" id="addClientButton"><i class="bi bi-plus-circle-fill"></i></button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="mymodal" id="editClientModal">
+                            <!-- modal for editing the engineer name -->
+                            <h3 class="modalHeader">Editing Client Name</h3>
+                            <form class="generalForm" id="editClientNameForm">
+                                <ul style="list-style: none;" id="editClientNameList">
+                                    <div id="editClientNameFormFrame"></div>
+                                    <li>
+                                        <select class="clientDropdowns" id="clientEditSelect">
+                                            
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="clientName" id="clientNameText">
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="submitButton" id="editClientNameButton"><i class="bi bi-pencil-fill"></i></button>
+                                    </li>
+                                </ul>
+                            </form>
+                            <hr class="sidebar-divider">
+                            <h3 class="modalHeader">Editing Client Address</h3>
+                            <form class="generalForm" id="editClientAddressForm">
+                                <!-- this modeal is for editing the address of a client -->
+                                <ul style="list-style: none;" id="editClientAddressList">
+                                    <div id="editClientAddressFormFrame"></div>
+                                    <li>
+                                        <select class="clientDropdowns" id="clientEditSelect2">
+                                            
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <label id="editClientAddressLabel">No client selected...</label>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="clientAddress" id="editclientAddressText">
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="submitButton" id="editClientAddressButton"><i class="bi bi-pencil-fill"></i></button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="mymodal" id="deleteClientModal">
+                            <!-- deleting engineer modal -->
+                            <h3 class="modalHeader">Deleting a Client</h3>
+                            <form class="generalForm" id="deleteClientForm">
+                                <ul style="list-style: none;" id="editClientAddressList">
+                                    <div id="deleteClientFormFrame"></div>
+                                    <li>
+                                        <select class="clientDropdowns" id="deleteClientSelect">
+                                            
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <button type="submit" id="deleteClientButton" class="submitButton"><i class="bi bi-trash-fill"></i></button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+                <div class="mainContainer" id="editEngineers">
+ <!-- Page Heading -->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Engineers</h1>
+</div>
+
+<hr class="sidebar-divider">
+
+<div style="text-align: center; margin-left: auto; margin-right: auto;" id="engineerContainer"></div>
+
+<div class="adminContainer">
+    <!-- current engineers are loaded here -->
+    <div id="engineerTableContainer"></div>
+    <div class="navFrame">
+        <a onclick="openModal('addEngineerModal')" class="navButton" id="addEngineer">Add Engineer</a>
+        <a onclick="openModal('editEngineerModal')" class="navButton" id="editEngineer">Edit Engineer</a>
+        <a onclick="openModal('deleteEngineerModal')" class="navButton" id="deleteEngineer">Delete Engineers</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="mymodal" id="addEngineerModal">
+        <!-- modal for the adding engineer section -->
+        <h3 class="modalHeader">Adding Engineer</h3>
+        <form id="addEngineerForm" class="generalForm">
+            <div id="addEngineerFormFrame"></div>
+            <ul style="list-style: none;" id="editEngineerList">
+            <li>
+                <input type="text" name="engineerName" id="addengineerText" placeholder="Enter name here ...">
+            </li>
+            <li>
+                <button type="submit" class="submitButton" id="addEngineerButton"><i class="bi bi-plus-circle-fill"></i></button>
+            </li>
+            <li>
+                <label id="addEngineerStatus"></label>
+            </li>
+            </ul>
+        </form>
+    </div>
+    <div class="mymodal" id="editEngineerModal">
+        <!-- modal for editing the engineer name -->
+        <h3 class="modalHeader">Editing Engineer Names</h3>
+        <form class="generalForm" id="editEngineerNameForm">
+            <ul style="list-style: none;" id="editEngineerList">
+                <div id="editEngineerNameFormFrame"></div>
+                <li>
+                    <select class="engineerSelect" id="engineerSelect">
+                        <option value="">Please select an engineer ...</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" name="engineerName" id="engineerEditText">
+                </li>
+                <li>
+                    <button type="submit" class="submitButton" id="editEngineerButton"><i class="bi bi-pencil-fill"></i></button>
+                </li>
+                <li>
+                    <label id="editEngineerStatus"></label>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="mymodal" id="deleteEngineerModal">
+        <!-- deleting engineer modal -->
+        <h3 class="modalHeader">Deleting Engineer</h3>
+        <form class="generalForm" id="deleteEngineerForm">
+            <ul style="list-style: none;" id="editEngineerList">
+                <div id="deleteEngineerFormFrame"></div>
+            <li>
+                <select class="engineerSelect" id="engineerSelectDelete">
+                    <option value="">Please select an engineer ...</option>
+                </select>
+            </li>
+            <li>
+                <button type="submit" id="deleteEngineerButton" class="submitButton"><i class="bi bi-trash-fill"></i></button>
+            </li>
+            <li>
+                <label id="deleteEngineerStatus"></label>
+            </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+                </div>
+
+                <div class="mainContainer" id="searchArea">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Job Sheet Search Area</h1>
+                    </div>
+
+                    <hr class="sidebar-divider">
+
+                    <div id="searchTabButtons">
+                        <a class="searchTabButton" onclick="changeSearchTab('searchClientFrame')">Search Clients</a>
+                        <a class="searchTabButton" onclick="changeSearchTab('searchDatesFrame')">Search Dates</a>
+                        <a class="searchTabButton" onclick="changeSearchTab('searchPEngineerFrame')">Search Primary Engineer</a>
+                        <a class="searchTabButton" onclick="changeSearchTab('searchEngineerSiteTimeFrame')">Search Engineer Site-time</a>
+                    </div>
+
+                    <div class="searchFrame" id="searchClientFrame">
+                        <h2 class="searchTitle">Search Clients</h2>
+                        <form id="clientSearchForm" style="text-align: left;">
+                            <div class="SearchContainer" id="clientSearchContainer">
+                                <ul style="list-style: none;" class="searchFormList">
+                                    <li>
+                                        <select class="editClientDropdown" id="clientSearchSelect">
+
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <input type="submit" id="jobSubmitButton">
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <form id="dropdownSearchGeneral" style="text-align: right;">
+                            <p>Search results are returned here:</p>
+                            <select id="generalSearchDropdown2">
+
+                            </select>
+                        </form>
+                    </div>
+
+                    <div class="searchFrame" id="searchDatesFrame">
+                        <h2 class="searchTitle">Search Dates</h2>
+                        <form id="generalSearchForm" style="text-align:left">
+                            <div class="SearchContainer" id="generalSearchContainer">
+                                <ul style="list-style: none;" class="searchFormList">
+                                    <li>
+                                        <label>Date 1:</label>
+                                    </li>
+                                    <li>
+                                        <input type="date" id="date1" name="date1">
+                                    </li>
+                                    <li>
+                                        <label>Date 2:</label>
+                                    </li>
+                                    <li>
+                                        <input type="date" id="date2" name="date2">
+                                    </li>
+                                    <li>
+                                        <input type="submit" id="jobSubmitButton">
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <form id="dropdownSearchGeneral" style="text-align: right;">
+                            <!-- dropdown goes here -->
+                            <!-- no submit button needed - will be submit event built into click -->
+                            <p>Search results are returned here:</p>
+                            <select id="generalSearchDropdown">
+                            </select>
+                        </form>
+                    </div>
+
+                    <div class="searchFrame" id="searchPEngineerFrame">
+                        <h2 class="searchTitle">Search Primary Engineer</h2>
+                        <form id="pengineerSearchForm" style="text-align: left;">
+                            <div class="SearchContainer" id="engineerSearchContainer">
+                                <ul style="list-style: none;" class="searchFormList">
+                                    <li>
+                                        <select class="editEngineerDropdown" id="engineerSearchSelect">
+
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <input type="submit" id="jobSubmitButton">
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <form id="dropdownSearchGeneral" style="text-align: right;">
+                            <p>Search results are returned here:</p>
+                            <select id="generalSearchDropdown3">
+    
+                            </select>
+                        </form>
+                    </div>
+
+                    <div class="searchFrame" id="searchEngineerSiteTimeFrame">
+                        <h2 class="searchTitle">Search Site-time for Engineers</h2>
+                        <form id="engineerSiteTimeForm" style="text-align: left;">
+                            <div class="SearchContainer" id="engineerTimeSearchContainer">
+                                <ul style="list-style: none;" class="searchFormList">
+                                    <li>
+                                        <select class="editEngineerDropdown" id="engineerTimeSelect">
+
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <label>Date 1:</label>
+                                    </li>
+                                    <li>
+                                        <input type="date" id="etDate1">
+                                    </li>
+                                    <li>
+                                        <label>Date 2:</label>
+                                    </li>
+                                    <li>
+                                        <input type="date" id="etDate2">
+                                    </li>
+                                    <li>
+                                        <input type="submit" id="jobSubmitButton">
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <form id="dropdownSearchGeneral" style="text-align: right;">
+                            <p>Search results are returned here:</p>
+                            <select id="generalSearchDropdown4">
+    
+                            </select>
+                        </form>
+                    </div>
+
+                    <form id="searchAreaJobSheetContainer" style="text-align: center;">
+                        <div class="jobSheetContainer" id="jobSheets">
+                            <!-- this is where the job sheets are loaded -->
+                            <div class="date">
+                                <h3 class="formTitle">Date</h3>
+                                <hr class="sidebar-divider">
+                                <input type="date" id="jobDateSearch">
+                            </div>
+                            <div class="client">
+                                <h3 class="formTitle">Client</h3>
+                                <hr class="sidebar-divider">
+                                <select class="clientDropdowns" id="clientSelectSearch" name="client">
+                                    <option value="">Please select a client ... </option>
+                                </select>
+                            </div>
+                            <div class="location">
+                                <h3 class="formTitle">Location</h3>
+                                <hr class="sidebar-divider">
+                                <label id="locationLabelSearch">N/A</label>
+                            </div>
+                            <div class="ponumber">
+                                <h3 class="formTitle">TRN</h3>
+                                <hr class="sidebar-divider">
+                                <input type="text" name="TRN" id="TRNSearch">
+                            </div>
+                            <div class="days">
+                                <h3 class="formTitle">Days</h3>
+                                <hr class="sidebar-divider">
+                                <input class="timeEntry" type="text" id="daysEntrySearch" name="days">
+                            </div>
+                            <div class="hours">
+                                <h3 class="formTitle">Hours</h3>
+                                <hr class="sidebar-divider">
+                                <input class="timeEntry" type="text" id="hoursEntrySearch" name="hours">
+                            </div>
+                            <div class="ID">
+                                <h3 class="formTitle">Job ID</h3>
+                                <hr class="sidebar-divider">
+                                <label id="jobIDLabelSearch">N/A</label>
+                            </div>
+                            <div class="engineer">
+                                <h3 class="formTitle">Engineer</h3>
+                                <hr class="sidebar-divider">
+                                <select class="engineerSelect engineerSearch" id="engineerSelect1Search" name="engineer1">
+                                    <option value="">Please select an engineer ...</option>
+                                </select>
+                                <select class="engineerSelect engineerSearch" id="engineerSelect2Search" name="engineer2">
+                                    <option value="">Please select an engineer ...</option>
+                                </select>
+                                <select class="engineerSelect engineerSearch" id="engineerSelect3Search" name="engineer3">
+                                    <option value="">Please select an engineer ...</option>
+                                </select>
+                                <select class="engineerSelect engineerSearch" id="engineerSelect4Search" name="engineer4">
+                                    <option value="">Please select an engineer ...</option>
+                                </select>
+                            </div>
+                            <div class="details">
+                                <h3 class="formTitle">Job Details</h3>
+                                <hr class="sidebar-divider">
+                                <textarea name="jobDetails" id="detailsAreaSearch"></textarea>
+                            </div>
+                            <div class="expenses">
+                                <h3 class="formTitle">Expenses</h3>
+                                <hr class="sidebar-divider">
+                                <ul style="list-style: none;" id="expensesList">
+                                    <li>
+                                        <label class="expensesLabel">Mileage:</label>
+                                        <input type="number" name="mileage" class="textField textFieldSearch" id="mileageEntrySearch" value="0">
+                                        <label id="milageLabelSearch" class="expensesLabel">£0</label>
+                                    </li>
+                                    <hr class="sidebar-divider">
+                                    <li>
+                                        <label class="expensesLabel">Food:</label>
+                                        <input type="number" name="food" class="textField textFieldSearch" id="foodEntrySearch" value="0">
+                                        <label id="foodLabelSearch" class="expensesLabel">£0</label>
+                                    </li>
+                                    <hr class="sidebar-divider">
+                                    <li>
+                                        <label class="expensesLabel">Postage:</label>
+                                        <input type="number" name="postage" class="textField textFieldSearch" id="postageEntrySearch" value="0">
+                                        <label id="postageLabelSearch" class="expensesLabel">£0</label>
+                                    </li>
+                                    <hr class="sidebar-divider">
+                                    <li>
+                                        <label class="expensesLabel">Parking:</label>
+                                        <input type="number" name="parking" class="textField textFieldSearch" id="parkingEntrySearch" value="0">
+                                        <label id="parkingLabelSearch" class="expensesLabel">£0</label>
+                                    </li>
+                                    <hr class="sidebar-divider">
+                                    <li>
+                                        <label class="expensesLabel">Tools:</label>
+                                        <input type="number" name="tools" class="textField textFieldSearch" id="toolsEntrySearch" value="0">
+                                        <label id="toolsLabelSearch" class="expensesLabel">£0</label>
+                                    </li>
+                                    <hr class="sidebar-divider">
+                                    <li>
+                                        <label id="totalLabelSearch" class="expensesLabel"></label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="equipment">
+                                <h3 class="formTitle">Equipment</h3>
+                                <hr class="sidebar-divider">
+                                <ul style="list-style: none; width: 100%;" id="equipmentList">
+                                    <li>
+                                        <label class="equipmentLabel" style="width: 600px;">Equipment</label>
+                                        <label class="equipmentLabel">Serial Number</label>
+                                        <label class="equipmentLabel">Cost Number</label>
+                                        <label class="equipmentLabel">Sale Number</label>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch">
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput1" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput1" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput2" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput2" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput3" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput3" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput4" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput4" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput5" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput5" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput6" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput6" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput7" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput7" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput8" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput8" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch" >
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput9" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput9" value="0">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="expenses" class="equipmentInput equipmentSearch">
+                                        <input type="text" name="serialNumber" class="serialNumberInput serialNumberSearch" value="N/A">
+                                        <input type="number" name="costNumber" class="costNumberInput costNumberSearch" id="costNumberInput10" value='0'>
+                                        <input type="number" name="saleNumber" class="saleNumberInput saleNumberSearch" id="saleNumberInput10" value="0">
+                                    </li>
+                                    <div id="extraEquipmentFrameSearchC">
+                                        <!-- extra equipment get loaded here when button is pressed -->
+                                    </div>
+                                    <li>
+                                        <input id="totalCostLabelSearch" name="totalCost" placeholder="Total Cost">
+                                        <input id="totalSaleLabelSearch" name="totalSale" placeholder="Total Sale">
+                                    </li>
+                                    
+                                    
+                                </ul>
+                            </div>
+                            <div class="jobComplete">
+                                <h3 class="formTitle">Job Complete</h3>
+                                <hr class="sidebar-divider">
+                                <label id="jobCompleteLabel">Job Complete:</label>
+                                <input type="checkbox" name="jobComplete" id="jobCompleteCheckbox" placeholder="Job Complete" required>
+                            </div>
+                            <div class="invoiceNumber">
+                                <h3 class="formTitle">Invoice Number</h3>
+                                <hr class="sidebar-divider">
+                                <input type="text" name="invoiceNumber" id="invoiceNumberInputSearch" placeholder="Invoice Number">
+                            </div>
+                        </div>
+                        <button type="submit" id="jobExportButton" onclick="sendPDF3()"> Export </button>                    
+                    </form>
+                </div>
+            </div>
+
+                <!-- /.container-fluid -->
+
+        
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; ArdenIT Ltd 2022 (Developed by Billy Stapleton)</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <!-- <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script> -->
+    <!-- <script src="js/indexJS.js"></script> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="js/mainscript.js"></script> -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- This it the master script for the JS functions -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>
